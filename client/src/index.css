@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+.waveform-info {
+    display: none !important;
+}
+
+
+
+
+
