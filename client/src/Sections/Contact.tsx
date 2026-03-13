@@ -3,7 +3,7 @@
 
 function Contact() {
   return (
-    <section id='Contact' className='h-[calc(100dvh-4rem)] w-full bg-gray-800 p-20'>
+    <section id='Contact' className='min-h-dvh/3 w-full p-20'>
 
       <div className=' flex-col h-full w-full bg-gray-800 p-20 border-4 rounded-3xl'>
 
@@ -14,35 +14,6 @@ function Contact() {
         </div>
 
 <form className="max-w-xl mx-auto">
-  <div className="grid gap-6 mb-6 md:grid-cols-2">
-    
-    <div>
-      <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-white">
-        First name
-      </label>
-      <input
-        type="text"
-        id="first_name"
-        placeholder="John"
-        required
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-      />
-    </div>
-
-    <div>
-      <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-700">
-        Last name
-      </label>
-      <input
-        type="text"
-        id="last_name"
-        placeholder="Smith"
-        required
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-      />
-    </div>
-
-  </div>
 
   <div className="mb-6">
     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-700">

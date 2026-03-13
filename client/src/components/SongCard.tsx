@@ -33,12 +33,12 @@ function SongCard({ song }: SongCardProps) {
 
     const wavesurfer = WaveSurfer.create({
       container: waveformRef.current,
-      waveColor: "rgba(0,0,0,0.25)",
-      progressColor: "rgb(99 102 241)", // Tailwind indigo-500
+      waveColor: "rgba(0,0,0,0.4)",
+      progressColor: "rgba(191, 9, 47, 1.0)", 
       height: 80,
       barWidth: 2,
       barGap: 1,
-      cursorColor: "transparent",
+      cursorColor: "transparent"
     })
 
     wavesurfer.load(song.audioFile.asset.url)
@@ -90,24 +90,21 @@ function SongCard({ song }: SongCardProps) {
   }
 
   return (
-    <div className="p-5 bg-gray-100 border-2 rounded-xl shadow w-[500px]">
+    <div className="p-6 my-1 bg-gray-100 border-2 rounded-xl shadow w-125">
 
-      {/* header */}
       <div className="flex justify-between items-start mb-4">
         <div>
-          <h2 className="text-lg font-bold">{song.title}</h2>
-          <p className="text-sm text-gray-600">{song.description}</p>
+          <h2 className="text-lg font-bold">{song?.title}</h2>
+          <p className="text-sm text-gray-600">{song?.description}</p>
         </div>
 
-        <span className="text-sm text-gray-500">
+        <span className="text-sm text-gray-500 cursor-default">
           {formatTime(currentTime)} / {formatTime(duration)}
         </span>
       </div>
 
-      {/* player row */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 cursor-pointer">
 
-        {/* play button */}
         <button
           onClick={togglePlay}
           className="
@@ -118,12 +115,12 @@ function SongCard({ song }: SongCardProps) {
             transition-all duration-200
             hover:scale-110 hover:bg-indigo-600
             active:scale-95
+            cursor-pointer
           "
         >
           <PlayPauseIcon playing={playing} />
         </button>
 
-        {/* waveform */}
         <div
           ref={waveformRef}
           className="flex-1 cursor-pointer"
