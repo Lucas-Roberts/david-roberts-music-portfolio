@@ -3,8 +3,8 @@ import DownwardsArrowIcon from "../components/icons/DownwardsArrowIcon"
 function Hero() {
   return (
     <section
-      id="About"
-      className="flex items-center w-full h-[calc(100dvh)] text-white py-24 bg-cover bg-center"
+      id="Home"
+      className="flex items-center w-full h-[calc(100dvh-2rem)] text-white py-24 bg-cover bg-center"
       
     >
       <div className="max-w-6xl mx-auto p-6 text-center">

@@ -90,7 +90,7 @@ function SongCard({ song }: SongCardProps) {
   }
 
   return (
-    <div className="p-6 my-1 bg-gray-100 border-2 rounded-xl shadow w-125">
+    <div className="p-6 my-1 bg-gray-100 border-2 rounded-xl shadow min-w-xl">
 
       <div className="flex justify-between items-start mb-4">
         <div>

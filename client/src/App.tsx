@@ -9,8 +9,12 @@ export default function App() {
     <>
     <Navbar></Navbar>
     <Hero></Hero>
+
+    <div className='bg-gray-900/60 backdrop-blur-xs'>
     <Music></Music>
     <Contact></Contact>
+    </div>
+    
     
     </>
   )
