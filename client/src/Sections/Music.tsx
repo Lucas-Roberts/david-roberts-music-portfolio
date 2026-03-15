@@ -38,20 +38,8 @@ function Music() {
         <div className="max-w-3xl mb-16 mx-auto text-center">
 
           <h2 className="text-4xl font-bold text-white mb-6 tracking-tight">
-            About Me
+            My Tracks
           </h2>
-
-          <p className="text-gray-300 leading-relaxed mb-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            At accusantium consectetur natus incidunt accusamus! Itaque
-            quo, ipsa vitae voluptate molestias labore qui autem.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed">
-            Neque obcaecati sunt, cum ut in facilis. Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Praesentium officiis
-            adipisci ipsum necessitatibus.
-          </p>
 
         </div>
 

@@ -4,7 +4,7 @@ function Hero() {
   return (
     <section
       id="Home"
-      className="flex items-center w-full h-[calc(100dvh-2rem)] text-white py-24 bg-cover bg-center"
+      className="flex items-center w-full h-[calc(80dvh)] text-white py-24 bg-cover bg-center"
       
     >
       <div className="max-w-6xl mx-auto p-6 text-center">
