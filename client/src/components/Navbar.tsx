@@ -31,9 +31,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed z-50 top-0 min-w-full bg-gray-900/70 text-white border-b border-b-yellow-300/50 backdrop-blur-xs">
+    <nav className="fixed  z-50 top-0 min-w-full bg-[#30364F]/70 text-white border-b border-b-white/20 backdrop-blur-xs shadow-2xl">
       <div className="min-w-full px-7 max-w-6xl mx-auto">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-15">
 
           <div className="text-xl font-semibold tracking-wide">
             MusicApp
@@ -61,3 +61,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+

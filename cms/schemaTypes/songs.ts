@@ -9,12 +9,21 @@ export default defineType({
       name: 'title',
       title: 'Song Title',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: Rule => 
+        Rule.required()
+            .min(3)
+            .max(30)
+            .error("Title must be between 3 and 30 characters.")
+     
     }),
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text'
+      type: 'text',
+      validation: Rule => 
+        Rule.required()
+            .max(150)
+            .error("Description must be less than 150 characters.")
     }),
     defineField({
       name: 'releaseDate',
