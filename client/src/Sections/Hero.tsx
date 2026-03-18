@@ -20,7 +20,7 @@ function Hero() {
 
         <a 
           href="#Music"
-          className="w-fit h-10 bg-black/60 rounded-3xl gap-2 shadow-lg flex items-center justify-center px-3 hover:border-2 hover:border-white/20"
+          className="w-fit h-10 bg-[#FFC50F]/80 rounded-3xl gap-2 shadow-lg flex items-center justify-center px-3 hover:border-2 hover:border-white/20"
         >
           My tracks
           <DownwardsArrowIcon></DownwardsArrowIcon>

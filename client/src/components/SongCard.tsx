@@ -33,8 +33,8 @@ function SongCard({ song }: SongCardProps) {
 
     const wavesurfer = WaveSurfer.create({
       container: waveformRef.current,
-      waveColor: "rgba(0,0,0,0.4)",
-      progressColor: "rgba(191, 9, 47, 1.0)", 
+      waveColor: "rgba(250, 247, 243, 0.4)",
+      progressColor: "rgb(46, 140, 239)", 
       height: 80,
       barWidth: 2,
       barGap: 1,
@@ -92,13 +92,12 @@ function SongCard({ song }: SongCardProps) {
   return (
     <div className="p-8 bg-[#1c2024]/95 border border-white/10 rounded-xl shadow w-full h-full grid grid-rows-[1fr_auto]">
 
-      {/* 🔥 Top section */}
+
       <div className="grid grid-cols-[1fr_auto] gap-4 mb-4 items-start">
 
-        {/* LEFT COLUMN */}
+
         <div className="grid gap-2">
 
-          {/* ✅ Title + Date INLINE */}
           <h2 className="flex items-baseline gap-2">
             <span className="text-xl font-bold">
               {song?.title}
@@ -109,21 +108,19 @@ function SongCard({ song }: SongCardProps) {
             </span>
           </h2>
 
-          {/* Description */}
           <p className="text-sm text-gray-600 line-clamp-2">
             {song?.description}
           </p>
 
         </div>
 
-        {/* RIGHT COLUMN (time) */}
         <span className="text-sm text-gray-500 whitespace-nowrap self-start">
           {formatTime(currentTime)} / {formatTime(duration)}
         </span>
 
       </div>
 
-      {/* 🔥 Bottom player */}
+
       <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
 
         <button
@@ -132,9 +129,9 @@ function SongCard({ song }: SongCardProps) {
             w-10 h-10
             flex items-center justify-center
             rounded-full
-            bg-indigo-500 text-white
+            bg-[#FFC50F] 
             transition-all duration-200
-            hover:scale-110 hover:bg-indigo-600
+            hover:scale-110 hover:bg-[#B88D00]
             active:scale-95
           "
         >
