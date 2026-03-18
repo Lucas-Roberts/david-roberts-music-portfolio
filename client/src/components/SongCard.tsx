@@ -94,21 +94,36 @@ function SongCard({ song }: SongCardProps) {
 
       {/* 🔥 Top section */}
       <div className="grid grid-cols-[1fr_auto] gap-4 mb-4 items-start">
-        <div>
-          <h2 className="text-lg font-bold">{song?.title}</h2>
 
-          {/* ✅ Clamped description (prevents height changes) */}
+        {/* LEFT COLUMN */}
+        <div className="grid gap-2">
+
+          {/* ✅ Title + Date INLINE */}
+          <h2 className="flex items-baseline gap-2">
+            <span className="text-xl font-bold">
+              {song?.title}
+            </span>
+
+            <span className="text-sm text-gray-500 whitespace-nowrap">
+              – {song?.releaseDate}
+            </span>
+          </h2>
+
+          {/* Description */}
           <p className="text-sm text-gray-600 line-clamp-2">
             {song?.description}
           </p>
+
         </div>
 
-        <span className="text-sm text-gray-500 cursor-default whitespace-nowrap">
+        {/* RIGHT COLUMN (time) */}
+        <span className="text-sm text-gray-500 whitespace-nowrap self-start">
           {formatTime(currentTime)} / {formatTime(duration)}
         </span>
+
       </div>
 
-      {/* 🔥 Bottom player (always sticks to bottom) */}
+      {/* 🔥 Bottom player */}
       <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
 
         <button
@@ -121,7 +136,6 @@ function SongCard({ song }: SongCardProps) {
             transition-all duration-200
             hover:scale-110 hover:bg-indigo-600
             active:scale-95
-            cursor-pointer
           "
         >
           <PlayPauseIcon playing={playing} />
