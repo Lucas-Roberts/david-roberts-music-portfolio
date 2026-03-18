@@ -22,7 +22,7 @@ export default defineType({
       type: 'text',
       validation: Rule => 
         Rule.required()
-            .max(150)
+            .max(130)
             .error("Description must be less than 150 characters.")
     }),
     defineField({

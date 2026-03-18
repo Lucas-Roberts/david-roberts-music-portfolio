@@ -90,20 +90,26 @@ function SongCard({ song }: SongCardProps) {
   }
 
   return (
-    <div className="p-8 bg-[#1c2024]/95 border border-white/10 rounded-xl shadow w-full ">
+    <div className="p-8 bg-[#1c2024]/95 border border-white/10 rounded-xl shadow w-full h-full grid grid-rows-[1fr_auto]">
 
-      <div className="flex justify-between items-start mb-4">
+      {/* 🔥 Top section */}
+      <div className="grid grid-cols-[1fr_auto] gap-4 mb-4 items-start">
         <div>
           <h2 className="text-lg font-bold">{song?.title}</h2>
-          <p className="text-sm text-gray-600">{song?.description}</p>
+
+          {/* ✅ Clamped description (prevents height changes) */}
+          <p className="text-sm text-gray-600 line-clamp-2">
+            {song?.description}
+          </p>
         </div>
 
-        <span className="text-sm text-gray-500 cursor-default">
+        <span className="text-sm text-gray-500 cursor-default whitespace-nowrap">
           {formatTime(currentTime)} / {formatTime(duration)}
         </span>
       </div>
 
-      <div className="flex items-center gap-4 cursor-pointer">
+      {/* 🔥 Bottom player (always sticks to bottom) */}
+      <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
 
         <button
           onClick={togglePlay}
@@ -123,7 +129,7 @@ function SongCard({ song }: SongCardProps) {
 
         <div
           ref={waveformRef}
-          className="flex-1 cursor-pointer"
+          className="w-full cursor-pointer"
         />
 
       </div>
