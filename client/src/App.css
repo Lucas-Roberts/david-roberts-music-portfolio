@@ -1,43 +1,6 @@
 @import "tailwindcss";
 
-.NavbarEffect {
-  text-decoration: none;
-  position: relative;
-}
 
-.NavbarEffect::before,
-.NavbarEffect::after {
-  content: "";
-  position: absolute;
-  display: block;
-  border: 0 solid transparent;
-  width: 0%;
-  height: 0%;
-  transition: all 0.3s ease;
-}
-
-.NavbarEffect::after {
-  top: 0;
-  left: 0;
-  border-top: 2px solid transparent;
-  border-left: 2px solid transparent;
-}
-
-.NavbarEffect::before {
-  right: 0;
-  bottom: 0;
-  border-bottom: 2px solid transparent;
-  border-right: 2px solid transparent;
-}
-
-.NavbarEffect:hover::before,
-.NavbarEffect:hover::after,
-.NavbarEffect.active::before,
-.NavbarEffect.active::after {
-  width: 10px;
-  height: 10px;
-  border-color: #A6A6A6;
-}
 
 
 /* 🌌 Global parallax background */

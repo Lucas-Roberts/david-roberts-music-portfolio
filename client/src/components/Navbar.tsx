@@ -31,7 +31,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed  z-50 top-0 min-w-full bg-[#30364F]/70 text-white border-b border-b-white/20 backdrop-blur-xs shadow-2xl">
+    <nav className="fixed  z-50 top-0 min-w-full  text-white border-b border-b-white/10 backdrop-blur-xs shadow-2xl">
       <div className="min-w-full px-7 max-w-6xl mx-auto">
         <div className="flex items-center justify-between h-15">
 
@@ -45,9 +45,9 @@ export default function Navbar() {
                 key={tab}
                 href={"#" + tab}
                 onClick={() => setActive(tab)}
-                className={`NavbarEffect relative px-2 py-1 text-sm font-medium transition-colors duration-200 ${
+                className={`NavbarEffect relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-4xl ${
                   active === tab
-                    ? "active text-white"
+                    ? "active text-white bg-gray-900/50"
                     : "text-gray-400 hover:text-white"
                 }`}
               >
