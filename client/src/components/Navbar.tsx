@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 export default function Navbar() {
   const [active, setActive] = useState("About");
 
-  const tabs = ["Home", "Music", "Contact"];
+  const tabs = ["About", "Music", "Contact"];
 
   useEffect(() => {
     const sections = tabs.map((tab) =>
@@ -35,9 +35,9 @@ export default function Navbar() {
       <div className="min-w-full px-7 max-w-6xl mx-auto">
         <div className="flex items-center justify-between h-15">
 
-          <div className="text-xl font-semibold tracking-wide">
+          <a href="#Home" className="text-xl font-semibold tracking-wide hover:text-[#FFC50F]">
             MusicApp
-          </div>
+          </a>
 
           <div className="flex space-x-6">
             {tabs.map((tab) => (
@@ -47,8 +47,8 @@ export default function Navbar() {
                 onClick={() => setActive(tab)}
                 className={`NavbarEffect relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-4xl ${
                   active === tab
-                    ? "active text-white bg-gray-900/50"
-                    : "text-gray-400 hover:text-white"
+                    ? "active text-[#FFC50F] bg-gray-900/80"
+                    : " hover:text-[#FFC50F]"
                 }`}
               >
                 {tab}

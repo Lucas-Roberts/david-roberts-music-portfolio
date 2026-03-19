@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import "./App.css"
 
 import Navbar from "./components/Navbar"
@@ -16,17 +16,14 @@ useParallaxBackground(bgRef)
 
   return (
     <>
-      {/* 🌌 Background */}
       <div
         ref={bgRef}
         className="parallax-bg"
         style={{ backgroundImage: `url(${bgImage})` }}
       />
 
-      {/* 🌑 Overlay */}
       <div className="parallax-overlay" />
 
-      {/* 📦 Content */}
       <div className="app-content">
         <Navbar />
         <Hero />

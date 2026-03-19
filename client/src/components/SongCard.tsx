@@ -93,7 +93,7 @@ function SongCard({ song }: SongCardProps) {
     <div className="p-8 bg-[#1c2024]/95 border border-white/10 rounded-xl shadow w-full h-full grid grid-rows-[1fr_auto]">
 
 
-      <div className="grid grid-cols-[1fr_auto] gap-4 mb-4 items-start">
+      <div className="grid grid-cols-[1fr_auto] gap-4 mb-4 items-start text-white">
 
 
         <div className="grid gap-2">
@@ -103,12 +103,12 @@ function SongCard({ song }: SongCardProps) {
               {song?.title}
             </span>
 
-            <span className="text-sm text-gray-500 whitespace-nowrap">
+            <span className="text-sm  whitespace-nowrap">
               – {song?.releaseDate}
             </span>
           </h2>
 
-          <p className="text-sm text-gray-600 line-clamp-2">
+          <p className="text-sm  line-clamp-2">
             {song?.description}
           </p>
 
@@ -133,6 +133,7 @@ function SongCard({ song }: SongCardProps) {
             transition-all duration-200
             hover:scale-110 hover:bg-[#B88D00]
             active:scale-95
+            cursor-pointer
           "
         >
           <PlayPauseIcon playing={playing} />

@@ -1,4 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,wght@0,100..1000;1,100..1000&display=swap');
+
 @import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-black;
+    font-family: "DM Sans", sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-archivo {
+    font-family: "Archivo Black", sans-serif;
+  }
+}
 
 html {
     scroll-behavior: smooth;
@@ -8,9 +23,7 @@ html {
     display: none !important;
 }
 
-body {
-  background-color: black;
-}
+
 
 
 
