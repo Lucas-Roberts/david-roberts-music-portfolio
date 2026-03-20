@@ -28,40 +28,34 @@ function Music() {
 
   return (
     <section
-      id="Music"
-      className="w-full h-fit flex justify-center py-20 bg-[#0E121B]"
-    >
+  id="Music"
+  className="w-full py-[clamp(3rem,6vw,5rem)] bg-[#0E121B]"
+>
+  <div className="w-full max-w-7xl mx-auto px-[clamp(1rem,4vw,3rem)]">
 
-      <div className="w-full mx-auto p-10">
+    {/* Heading */}
+    <div className="max-w-3xl mb-[clamp(2rem,5vw,4rem)] mx-auto text-center">
+      <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-white tracking-tight">
+        My Tracks
+      </h2>
+    </div>
 
-        {/* About Section */}
-        <div className="max-w-3xl mb-16 mx-auto text-center">
+    {/* 🔥 Grid */}
+    <div className="
+      grid
+      grid-cols-[repeat(auto-fit,minmax(280px,1fr))]
+      gap-[clamp(0.75rem,2vw,1.5rem)]
+      items-stretch
+    ">
 
-          <h2 className="text-4xl font-bold text-white mb-6 tracking-tight">
-            My Tracks
-          </h2>
+      {songs.map((song) => (
+        <SongCard key={song._id} song={song} />
+      ))}
 
-        </div>
+    </div>
 
-        {/* Music Grid */}
-        <div className="
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          lg:grid-cols-3
-          gap-3
-          justify-items-center
-        ">
-
-          {songs.map((song) => (
-            <SongCard key={song._id} song={song} />
-          ))}
-
-        </div>
-
-      </div>
-
-    </section>
+  </div>
+</section>
   )
 }
 

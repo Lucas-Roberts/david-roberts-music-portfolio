@@ -90,64 +90,84 @@ function SongCard({ song }: SongCardProps) {
   }
 
   return (
-    <div className="p-8 bg-[#1c2024]/95 border border-white/10 rounded-xl shadow w-full h-full grid grid-rows-[1fr_auto]">
+  <div className="
+    p-[clamp(1.25rem,2vw,2rem)]
+    bg-[#1c2024]/95
+    border border-white/10
+    rounded-xl
+    shadow
+    w-full
+    h-full
+    grid
+    grid-rows-[auto_1fr_auto]
+  ">
 
+    {/* 🔥 Top section */}
+    <div className="grid grid-cols-[1fr_auto] gap-4 mb-4 items-start text-white">
 
-      <div className="grid grid-cols-[1fr_auto] gap-4 mb-4 items-start text-white">
+      <div className="grid gap-2">
 
+        {/* ✅ Responsive title */}
+        <h2 className="flex items-baseline gap-2">
+          <span className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold">
+            {song?.title}
+          </span>
 
-        <div className="grid gap-2">
+          <span className="text-[clamp(0.75rem,1vw,0.9rem)] text-white/60 whitespace-nowrap">
+            – {song?.releaseDate}
+          </span>
+        </h2>
 
-          <h2 className="flex items-baseline gap-2">
-            <span className="text-xl font-bold">
-              {song?.title}
-            </span>
-
-            <span className="text-sm  whitespace-nowrap">
-              – {song?.releaseDate}
-            </span>
-          </h2>
-
-          <p className="text-sm  line-clamp-2">
-            {song?.description}
-          </p>
-
-        </div>
-
-        <span className="text-sm text-gray-500 whitespace-nowrap self-start">
-          {formatTime(currentTime)} / {formatTime(duration)}
-        </span>
-
-      </div>
-
-
-      <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
-
-        <button
-          onClick={togglePlay}
-          className="
-            w-10 h-10
-            flex items-center justify-center
-            rounded-full
-            bg-[#FFC50F] 
-            transition-all duration-200
-            hover:scale-110 hover:bg-[#B88D00]
-            active:scale-95
-            cursor-pointer
-          "
-        >
-          <PlayPauseIcon playing={playing} />
-        </button>
-
-        <div
-          ref={waveformRef}
-          className="w-full cursor-pointer"
-        />
+        {/* ✅ CLAMPED DESCRIPTION */}
+        <p className="
+          text-[clamp(0.85rem,1.2vw,1rem)]
+          text-white/70
+          line-clamp-2
+          leading-relaxed
+        ">
+          {song?.description}
+        </p>
 
       </div>
+
+      {/* Time */}
+      <span className="text-[clamp(0.75rem,1vw,0.9rem)] text-white/50 whitespace-nowrap self-start">
+        {formatTime(currentTime)} / {formatTime(duration)}
+      </span>
 
     </div>
-  )
+
+    {/* 🔥 Spacer (pushes player down) */}
+    <div />
+
+    {/* 🔥 Bottom player */}
+    <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
+
+      <button
+        onClick={togglePlay}
+        className="
+          w-[clamp(2.25rem,3vw,2.5rem)]
+          h-[clamp(2.25rem,3vw,2.5rem)]
+          flex items-center justify-center
+          rounded-full
+          bg-[#FFC50F]
+          transition-all duration-200
+          hover:scale-110 hover:bg-[#B88D00]
+          active:scale-95
+        "
+      >
+        <PlayPauseIcon playing={playing} />
+      </button>
+
+      <div
+        ref={waveformRef}
+        className="w-full cursor-pointer"
+      />
+
+    </div>
+
+  </div>
+)
 }
 
 export default SongCard
