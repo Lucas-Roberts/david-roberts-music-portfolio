@@ -29,7 +29,7 @@ function Music() {
   return (
     <section
       id="Music"
-      className="w-full min-h-dvh flex justify-center py-20 bg-[#151514]"
+      className="w-full h-fit flex justify-center py-20 bg-[#0E121B]"
     >
 
       <div className="w-full mx-auto p-10">

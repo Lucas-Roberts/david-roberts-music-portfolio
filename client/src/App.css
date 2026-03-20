@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-
-
-
-/* 🌌 Global parallax background */
 .parallax-bg {
   position: fixed;
   inset: 0;
@@ -16,7 +12,6 @@
   will-change: transform, filter, opacity;
 }
 
-/* 🌑 Overlay */
 .parallax-overlay {
   position: fixed;
   inset: 0;
@@ -31,81 +26,9 @@
   );
 }
 
-/* 📦 Foreground content */
 .app-content {
   position: relative;
   z-index: 10;
 }
 
 
-@layer components {
-  .border-flow {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .border-flow span {
-    position: absolute;
-    pointer-events: none;
-  }
-
-  /* 🔹 LEFT START (center) */
-  .border-flow .left-start {
-    left: 0;
-    top: 50%;
-    width: 2px;
-    height: 0;
-    transform: translateY(-50%);
-    background: white;
-    transition: height 0.2s ease;
-  }
-
-  /* 🔹 TOP EDGE (gradient fade) */
-  .border-flow .top-line {
-    top: 0;
-    left: 0;
-    height: 2px;
-    width: 0;
-    background: linear-gradient(
-      to right,
-      white 0%,
-      white 30%,
-      transparent 80%
-    );
-    transition: width 0.3s ease 0.2s;
-  }
-
-  /* 🔹 BOTTOM EDGE (gradient fade) */
-  .border-flow .bottom-line {
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 0;
-    background: linear-gradient(
-      to right,
-      white 0%,
-      white 30%,
-      transparent 80%
-    );
-    transition: width 0.3s ease 0.2s;
-  }
-
-
-
-
-  /* 🔥 HOVER ANIMATION */
-
-  .border-flow:hover .left-start {
-    height: 100%;
-  }
-
-  .border-flow:hover .top-line {
-    width: 100%;
-  }
-
-  .border-flow:hover .bottom-line {
-    width: 100%;
-  }
-
-
-}
