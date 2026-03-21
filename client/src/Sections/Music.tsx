@@ -29,21 +29,22 @@ function Music() {
   return (
     <section
   id="Music"
-  className="w-full py-[clamp(3rem,6vw,5rem)] bg-[#0E121B]"
+  className="max-w-7xl mx-auto  bg-[#0E121B]/0"
 >
-  <div className="w-full max-w-7xl mx-auto px-[clamp(1rem,4vw,3rem)]">
+  <div className="w-full  mx-auto bg-yellow-100 px-[clamp(1rem,4vw,3rem)]">
 
-    {/* Heading */}
-    <div className="max-w-3xl mb-[clamp(2rem,5vw,4rem)] mx-auto text-center">
+    <div className=" bg-blue-600 mb-[clamp(2rem,5vw,4rem)] mx-auto text-center">
       <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-white tracking-tight">
         My Tracks
       </h2>
     </div>
 
-    {/* 🔥 Grid */}
+    
     <div className="
       grid
-      grid-cols-[repeat(auto-fit,minmax(280px,1fr))]
+      bg-red-500
+      grid-cols-[repeat(auto-fit,minmax(400px,1fr))]
+      lg:grid-cols-2
       gap-[clamp(0.75rem,2vw,1.5rem)]
       items-stretch
     ">

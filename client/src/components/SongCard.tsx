@@ -91,7 +91,7 @@ function SongCard({ song }: SongCardProps) {
 
   return (
   <div className="
-    p-[clamp(1.25rem,2vw,2rem)]
+    p-[clamp(1.25rem,2vw,1.5rem)]
     bg-[#1c2024]/95
     border border-white/10
     rounded-xl
@@ -102,27 +102,25 @@ function SongCard({ song }: SongCardProps) {
     grid-rows-[auto_1fr_auto]
   ">
 
-    {/* 🔥 Top section */}
+    
     <div className="grid grid-cols-[1fr_auto] gap-4 mb-4 items-start text-white">
 
       <div className="grid gap-2">
 
-        {/* ✅ Responsive title */}
+        
         <h2 className="flex items-baseline gap-2">
           <span className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold">
             {song?.title}
           </span>
 
-          <span className="text-[clamp(0.75rem,1vw,0.9rem)] text-white/60 whitespace-nowrap">
-            – {song?.releaseDate}
-          </span>
+      
         </h2>
 
-        {/* ✅ CLAMPED DESCRIPTION */}
+   
         <p className="
           text-[clamp(0.85rem,1.2vw,1rem)]
           text-white/70
-          line-clamp-2
+          line-clamp-3
           leading-relaxed
         ">
           {song?.description}
@@ -130,17 +128,17 @@ function SongCard({ song }: SongCardProps) {
 
       </div>
 
-      {/* Time */}
+
       <span className="text-[clamp(0.75rem,1vw,0.9rem)] text-white/50 whitespace-nowrap self-start">
         {formatTime(currentTime)} / {formatTime(duration)}
       </span>
 
     </div>
 
-    {/* 🔥 Spacer (pushes player down) */}
+
     <div />
 
-    {/* 🔥 Bottom player */}
+   
     <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
 
       <button

@@ -4,9 +4,9 @@ function Hero() {
   return (
     <section
       id="Home"
-      className="flex items-center w-full min-h-[95dvh] text-white px-6 md:px-12 lg:px-20"
+      className="flex items-center w-full min-h-[95dvh] text-white px-6 md:px-12 lg:px-20 border-b border-b-white/10"
     >
-      <div className="flex flex-col justify-center w-full h-full max-w-5xl">
+      <div className="flex flex-col justify-center w-full h-full max-w-7xl">
 
         {/* 🔥 Responsive heading */}
         <h1 className="font-archivo font-bold leading-tight mb-6 text-[clamp(2.5rem,5vw,4rem)]">
@@ -25,9 +25,13 @@ function Hero() {
         >
           My tracks
           <DownwardsArrowIcon />
+
+          
         </a>
 
       </div>
+
+      <div className="blob"> hello</div>
     </section>
   )
 }

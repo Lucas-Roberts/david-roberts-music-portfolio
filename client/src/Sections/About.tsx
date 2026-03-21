@@ -11,7 +11,7 @@ function About() {
         grid
         grid-cols-[repeat(auto-fit,minmax(280px,1fr))]
         gap-[clamp(1rem,3vw,2.5rem)]
-        px-[clamp(1rem,5vw,4rem)]
+        px-[clamp(0.3rem,2vw,1rem)]
         max-w-7xl
         mx-auto
       ">
