@@ -4,6 +4,8 @@ import PlayPauseIcon from "./icons/PlayPauseIcon"
 
 let activePlayer: WaveSurfer | null = null
 
+const PRIMARY = "#3b82f6" 
+
 type Song = {
   _id: string
   title: string
@@ -33,8 +35,8 @@ function SongCard({ song }: SongCardProps) {
 
     const wavesurfer = WaveSurfer.create({
       container: waveformRef.current,
-      waveColor: "rgba(250, 247, 243, 0.4)",
-      progressColor: "rgb(46, 140, 239)", 
+      waveColor: "rgba(255,255,255,0.7)", 
+      progressColor: PRIMARY,             
       height: 80,
       barWidth: 2,
       barGap: 1,
@@ -89,83 +91,67 @@ function SongCard({ song }: SongCardProps) {
     return `${minutes}:${seconds}`
   }
 
-  return (
-  <div className="
-    p-[clamp(1.25rem,2vw,1.5rem)]
-    bg-[#1c2024]/95
-    border border-white/10
-    rounded-xl
-    shadow
-    w-full
-    h-full
-    grid
-    grid-rows-[auto_1fr_auto]
-  ">
+return (
+  <div
+    className="
+      bg-[#1c2024]/95
+      shadow-lg/50
+      w-full
+      h-full
+      grid
+      grid-rows-[auto_1fr]
+      gap-4
 
-    
-    <div className="grid grid-cols-[1fr_auto] gap-4 mb-4 items-start text-white">
+    "
+  >
+    {/* Waveform */}
+    <div
+      ref={waveformRef}
+      className="w-full h-30 cursor-pointer bg-red-500 "
+    />
 
+    {/* Content */}
+    <div>
       <div className="grid gap-2">
-
-        
         <h2 className="flex items-baseline gap-2">
           <span className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold">
             {song?.title}
           </span>
-
-      
         </h2>
 
-   
-        <p className="
-          text-[clamp(0.85rem,1.2vw,1rem)]
-          text-white/70
-          line-clamp-3
-          leading-relaxed
-        ">
+        <p className="text-[clamp(0.85rem,1.2vw,1rem)] text-white/70 line-clamp-3 leading-relaxed">
           {song?.description}
         </p>
-
       </div>
 
-
-      <span className="text-[clamp(0.75rem,1vw,0.9rem)] text-white/50 whitespace-nowrap self-start">
+      <span className="text-[clamp(0.75rem,1vw,0.9rem)] text-white/50 whitespace-nowrap">
         {formatTime(currentTime)} / {formatTime(duration)}
       </span>
-
     </div>
-
-
-    <div />
-
-   
-    <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
-
-      <button
-        onClick={togglePlay}
-        className="
-          w-[clamp(2.25rem,3vw,2.5rem)]
-          h-[clamp(2.25rem,3vw,2.5rem)]
-          flex items-center justify-center
-          rounded-full
-          bg-[#FFC50F]
-          transition-all duration-200
-          hover:scale-110 hover:bg-[#B88D00]
-          active:scale-95
-        "
-      >
-        <PlayPauseIcon playing={playing} />
-      </button>
-
-      <div
-        ref={waveformRef}
-        className="w-full cursor-pointer"
-      />
-
-    </div>
-
   </div>
 )
 }
 
 export default SongCard
+
+
+
+      {/* <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
+        <button
+          onClick={togglePlay}
+          className={`
+            w-[clamp(2.25rem,3vw,2.5rem)]
+            h-[clamp(2.25rem,3vw,2.5rem)]
+            flex items-center justify-center
+            rounded-full
+            bg-blue-500
+            transition-all duration-200
+            hover:scale-110 hover:bg-blue-600
+            active:scale-95
+            ${playing ? "shadow-[0_0_20px_rgba(59,130,246,0.35)]" : ""}
+          `}
+        >
+          <PlayPauseIcon playing={playing} />
+        </button>
+
+      </div> */}

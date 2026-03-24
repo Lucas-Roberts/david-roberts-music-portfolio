@@ -40,7 +40,6 @@ export function useParallaxBackground(
       }
     }
 
-    // ✅ RUN ON LOAD (this fixes your issue)
     updateStyles()
 
     window.addEventListener("scroll", handleScroll)

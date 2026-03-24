@@ -4,7 +4,7 @@ function About() {
   return (
     <section 
       id='About' 
-      className='bg-[linear-gradient(to_top,#f4f3f2_10%,transparent_80%)] py-[clamp(2rem,6vw,5rem)]'
+      className='bg-[linear-gradient(to_top,#f4f3f2_50%,transparent_50%)] py-[clamp(2rem,6vw,5rem)]'
     >
 
       <div className="

@@ -17,13 +17,13 @@ export default defineType({
      
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
+      name: 'Artist',
+      title: 'Artist',
       type: 'text',
       validation: Rule => 
         Rule.required()
-            .max(130)
-            .error("Description must be less than 150 characters.")
+            .max(30)
+            .error("Description must be less than 30 characters.")
     }),
     defineField({
       name: 'releaseDate',

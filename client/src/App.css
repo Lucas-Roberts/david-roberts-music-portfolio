@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-
-
-
-
 .blob {
   position: absolute;
   width: 40vw;
@@ -15,5 +11,7 @@
   filter: blur(130px);
   opacity: 0.5;
 }
+
+
 
 

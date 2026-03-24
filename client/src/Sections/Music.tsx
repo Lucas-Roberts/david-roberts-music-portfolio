@@ -31,9 +31,9 @@ function Music() {
   id="Music"
   className="max-w-7xl mx-auto  bg-[#0E121B]/0"
 >
-  <div className="w-full  mx-auto bg-yellow-100 px-[clamp(1rem,4vw,3rem)]">
+  <div className="w-full  mx-auto  px-[clamp(1rem,4vw,3rem)]">
 
-    <div className=" bg-blue-600 mb-[clamp(2rem,5vw,4rem)] mx-auto text-center">
+    <div className="  mb-[clamp(2rem,5vw,4rem)] mx-auto text-center">
       <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-white tracking-tight">
         My Tracks
       </h2>
@@ -42,7 +42,7 @@ function Music() {
     
     <div className="
       grid
-      bg-red-500
+     
       grid-cols-[repeat(auto-fit,minmax(400px,1fr))]
       lg:grid-cols-2
       gap-[clamp(0.75rem,2vw,1.5rem)]

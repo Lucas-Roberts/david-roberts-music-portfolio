@@ -36,7 +36,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-15">
 
           <a href="#Home" className="text-xl font-semibold tracking-wide hover:text-[#FFC50F]">
-            MusicApp
+            Skye.Music
           </a>
 
           <div className="flex space-x-6">
