@@ -4,7 +4,7 @@ import PlayPauseIcon from "./icons/PlayPauseIcon"
 
 let activePlayer: WaveSurfer | null = null
 
-const PRIMARY = "#3b82f6" 
+const PRIMARY = "#3b82f6"
 
 type Song = {
   _id: string
@@ -35,12 +35,13 @@ function SongCard({ song }: SongCardProps) {
 
     const wavesurfer = WaveSurfer.create({
       container: waveformRef.current,
-      waveColor: "rgba(255,255,255,0.7)", 
-      progressColor: PRIMARY,             
+      waveColor: "rgb(160, 165, 171)",
+      progressColor: "rgba(255,255,255,0.7)",
       height: 80,
-      barWidth: 2,
-      barGap: 1,
-      cursorColor: "transparent"
+      barWidth: 1,
+      barGap: 2,
+      cursorColor: "transparent",
+      backend: "MediaElement",
     })
 
     wavesurfer.load(song.audioFile.asset.url)
@@ -60,6 +61,10 @@ function SongCard({ song }: SongCardProps) {
       setPlaying(false)
       setCurrentTime(0)
       wavesurfer.seekTo(0)
+    })
+
+    wavesurfer.on("error", (err) => {
+      console.error("WaveSurfer error:", err)
     })
 
     wavesurferRef.current = wavesurfer
@@ -91,67 +96,73 @@ function SongCard({ song }: SongCardProps) {
     return `${minutes}:${seconds}`
   }
 
-return (
-  <div
-    className="
-      bg-[#1c2024]/95
-      shadow-lg/50
-      w-full
-      h-full
-      grid
-      grid-rows-[auto_1fr]
-      gap-4
-
-    "
-  >
-    {/* Waveform */}
+  return (
     <div
-      ref={waveformRef}
-      className="w-full h-30 cursor-pointer bg-red-500 "
-    />
+      className="
+        relative
+        shadow-[0_0_12px_rgba(0,0,0,0.4)]
+        w-full
+        h-70
+        grid
+        grid-rows-2
+        min-h-0
+      "
+    >
+      {/* Top 50% (Waveform) */}
+      <div className="min-h-0 flex items-center bg-amber-400/20">
+        <div
+          ref={waveformRef}
+          className="w-full cursor-pointer"
+        />
+        
 
-    {/* Content */}
-    <div>
-      <div className="grid gap-2">
-        <h2 className="flex items-baseline gap-2">
-          <span className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold">
-            {song?.title}
-          </span>
-        </h2>
-
-        <p className="text-[clamp(0.85rem,1.2vw,1rem)] text-white/70 line-clamp-3 leading-relaxed">
-          {song?.description}
-        </p>
       </div>
 
-      <span className="text-[clamp(0.75rem,1vw,0.9rem)] text-white/50 whitespace-nowrap">
-        {formatTime(currentTime)} / {formatTime(duration)}
-      </span>
+      {/* Bottom 50% (Content) */}
+      <div className="min-h-0  p-3 flex flex-col justify-between">
+        <div className="grid gap-2">
+          <h2 className="flex items-baseline gap-2">
+            <span className="text-[clamp(1rem,1.5vw,1.25rem)]">
+              {song?.title}
+            </span>
+          </h2>
+
+          <p className="text-[clamp(0.85rem,1.2vw,1rem)] line-clamp-3 leading-relaxed">
+            {song?.description}
+          </p>
+        </div>
+
+        <span className="absolute bottom-1 right-1  whitespace-nowrap">
+          {formatTime(currentTime)} / {formatTime(duration)}
+        </span>
+
+
+      </div>
+
+      {/* Floating Play Button */}
+      <button
+        onClick={togglePlay}
+        className={`
+          absolute
+          right-6
+          top-1/2
+          -translate-y-1/2
+          w-12 h-12
+          flex items-center justify-center
+          rounded-full
+          bg-blue-500
+          transition-all duration-200
+          hover:scale-110 hover:bg-blue-600
+          active:scale-95
+          shadow-lg
+          cursor-pointer
+          ${playing ? "shadow-[0_0_20px_rgba(59,130,246,0.95)]" : ""}
+        `}
+      >
+        <PlayPauseIcon playing={playing} />
+      </button>
     </div>
-  </div>
-)
+  )
 }
 
 export default SongCard
-
-
-
-      {/* <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
-        <button
-          onClick={togglePlay}
-          className={`
-            w-[clamp(2.25rem,3vw,2.5rem)]
-            h-[clamp(2.25rem,3vw,2.5rem)]
-            flex items-center justify-center
-            rounded-full
-            bg-blue-500
-            transition-all duration-200
-            hover:scale-110 hover:bg-blue-600
-            active:scale-95
-            ${playing ? "shadow-[0_0_20px_rgba(59,130,246,0.35)]" : ""}
-          `}
-        >
-          <PlayPauseIcon playing={playing} />
-        </button>
-
-      </div> */}
