@@ -5,7 +5,7 @@ import SongCard from "../components/SongCard"
 type Song = {
   _id: string
   title: string
-  description: string
+  artist: string
   releaseDate: string
   audioFile: {
     asset: {
@@ -45,7 +45,7 @@ function Music() {
      
       grid-cols-[repeat(auto-fit,minmax(400px,1fr))]
       lg:grid-cols-2
-      gap-[clamp(0.75rem,2vw,1.5rem)]
+      gap-[clamp(1rem,2vw,1.5rem)]
       items-stretch
     ">
 

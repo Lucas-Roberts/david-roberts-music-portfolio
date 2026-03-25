@@ -17,9 +17,9 @@ export default defineType({
      
     }),
     defineField({
-      name: 'Artist',
-      title: 'Artist',
-      type: 'text',
+      name: 'artist',
+      title: 'artist',
+      type: 'string',
       validation: Rule => 
         Rule.required()
             .max(30)

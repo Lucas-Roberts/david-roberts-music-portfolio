@@ -9,7 +9,7 @@ const PRIMARY = "#3b82f6"
 type Song = {
   _id: string
   title: string
-  description: string
+  artist: string
   releaseDate: string
   audioFile: {
     asset: {
@@ -128,7 +128,7 @@ function SongCard({ song }: SongCardProps) {
           </h2>
 
           <p className="text-[clamp(0.85rem,1.2vw,1rem)] line-clamp-3 leading-relaxed">
-            {song?.description}
+            {song?.artist}
           </p>
         </div>
 
