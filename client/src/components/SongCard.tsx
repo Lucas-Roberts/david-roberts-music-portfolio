@@ -4,8 +4,6 @@ import PlayPauseIcon from "./icons/PlayPauseIcon"
 
 let activePlayer: WaveSurfer | null = null
 
-const PRIMARY = "#3b82f6"
-
 type Song = {
   _id: string
   title: string
@@ -128,7 +126,7 @@ function SongCard({ song }: SongCardProps) {
           </h2>
 
           <p className="text-[clamp(0.85rem,1.2vw,1rem)] line-clamp-3 leading-relaxed">
-            {song?.artist}
+            {song?.artist}gh
           </p>
         </div>
 
