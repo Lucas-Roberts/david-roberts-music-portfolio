@@ -100,7 +100,7 @@ function SongCard({ song }: SongCardProps) {
         relative
         shadow-[0_0_12px_rgba(0,0,0,0.4)]
         w-full
-        h-70
+        h-60
         grid
         grid-rows-2
         min-h-0
@@ -126,7 +126,7 @@ function SongCard({ song }: SongCardProps) {
           </h2>
 
           <p className="text-[clamp(0.85rem,1.2vw,1rem)] line-clamp-3 leading-relaxed">
-            {song?.artist}gh
+            {song?.artist}
           </p>
         </div>
 

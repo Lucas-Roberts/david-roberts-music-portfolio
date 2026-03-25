@@ -29,7 +29,7 @@ function Music() {
   return (
     <section
   id="Music"
-  className="max-w-7xl mx-auto  bg-[#0E121B]/0"
+  className="max-w-7xl mx-auto  "
 >
   <div className="w-full  mx-auto  px-[clamp(1rem,4vw,3rem)]">
 

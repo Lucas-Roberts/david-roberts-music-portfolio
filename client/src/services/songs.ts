@@ -3,7 +3,7 @@ import {client} from '../lib/sanityClient'
 export async function getSongs() {
   return client.fetch(`*[_type == "song"]{
     title,
-    description,
+    artist,
     releaseDate,
     audioFile{
       asset->{
