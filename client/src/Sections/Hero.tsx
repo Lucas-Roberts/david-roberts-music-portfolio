@@ -4,7 +4,7 @@ function Hero() {
   return (
     <section
       id="Home"
-      className="flex items-center bg-black/95 w-full min-h-[95dvh] text-white px-6 md:px-12 lg:px-20 border-b border-b-white/10"
+      className="flex items-center bg-[linear-gradient(to_bottom,#333333_90%,#e5e5e5_100%)] w-full min-h-dvh text-white px-6 md:px-12 lg:px-20 border-b border-b-white/10"
     >
       <div className="flex flex-col justify-center w-full h-full max-w-7xl">
 

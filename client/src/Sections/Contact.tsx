@@ -1,6 +1,6 @@
 function Contact() {
   return (
-    <section id="Contact" className="w-full px-6 py-24 flex justify-center bg-[#151514] ">
+    <section id="Contact" className="w-full px-6 py-24 flex justify-center">
 
       <div className="w-full max-w-6xl">
 
