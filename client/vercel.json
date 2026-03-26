@@ -2,5 +2,13 @@
   "routes": [
     { "handle": "filesystem" },
     { "src": "/.*", "dest": "/index.html" }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.skye-music.co.uk" }],
+      "destination": "https://skye-music.co.uk/$1",
+      "permanent": true
+    }
   ]
 }
