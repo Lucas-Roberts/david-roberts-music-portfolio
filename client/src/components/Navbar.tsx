@@ -31,35 +31,78 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed  z-50 top-0 min-w-full  text-white border-b border-b-white/10 backdrop-blur-xs shadow-2xl">
-      <div className="min-w-full px-7 max-w-6xl mx-auto">
-        <div className="flex items-center justify-between h-15">
+    <nav
+      className="
+        fixed top-0 z-50 w-full
+        backdrop-blur-xl
+        bg-white/5
+        border-b border-white/10
+        shadow-[0_8px_30px_rgba(0,0,0,0.3)]
+      "
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex items-center justify-between h-16">
 
-          <a href="#Home" className="text-xl font-semibold tracking-wide hover:text-[#FFC50F]">
-            Skye.Music
+          {/* Logo */}
+          <a
+            href="#Home"
+            className="
+              text-lg md:text-xl
+              font-medium
+              tracking-tight
+              text-white/90
+              transition-colors duration-300
+              hover:text-[#FFC50F]
+            "
+          >
+            Skye<span className="text-white/50">.Music</span>
           </a>
 
-          <div className="flex space-x-6">
+          {/* Nav links */}
+          <div className="flex items-center gap-6">
+
             {tabs.map((tab) => (
               <a
                 key={tab}
                 href={"#" + tab}
                 onClick={() => setActive(tab)}
-                className={`NavbarEffect relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-4xl ${
-                  active === tab
-                    ? "active text-[#FFC50F] bg-gray-900/80"
-                    : " hover:text-[#FFC50F]"
-                }`}
+                className={`
+                  relative
+                  text-sm
+                  font-medium
+                  tracking-wide
+
+                  text-white/70
+                  transition-all duration-300
+
+                  hover:text-white
+
+                  ${active === tab ? "text-white" : ""}
+                `}
               >
                 {tab}
+
+                {/* underline indicator */}
+                <span
+                  className={`
+                    absolute left-0 -bottom-1
+                    h-[2px] w-full
+                    bg-[#FFC50F]
+                    rounded-full
+
+                    transition-all duration-300
+
+                    ${
+                      active === tab
+                        ? "opacity-100 scale-x-100"
+                        : "opacity-0 scale-x-50"
+                    }
+                  `}
+                />
               </a>
             ))}
 
-            <div>
-              
-            </div>
           </div>
-
         </div>
       </div>
     </nav>

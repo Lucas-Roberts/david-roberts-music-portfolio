@@ -2,14 +2,32 @@
 
 .blob {
   position: absolute;
-  width: 40vw;
-  height: 40vw;
-  top: 2%;
-  right: 0%;
-  background: radial-gradient(circle at 30% 30%, #da7cf7, #0c11b3);
+  width: 55vw;
+  height: 55vw;
+  top: -20%;
+  right: -10%;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(92,106,235,0.9),
+    rgba(222,223,255,0.4)
+  );
+
   border-radius: 50%;
-  filter: blur(130px);
+  filter: blur(140px);
   opacity: 0.5;
+
+  animation: blobFloat 12s ease-in-out infinite;
+}
+
+/* subtle floating motion */
+@keyframes blobFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-20px, 30px) scale(1.05);
+  }
 }
 
 

@@ -4,7 +4,7 @@
 
 @layer base {
   html, body {
-    @apply bg-[#333333];
+    @apply bg-[#1f1f1f];
     font-family: "DM Sans", sans-serif;
   }
 }

@@ -12,34 +12,79 @@ function Hero() {
   return (
     <section
       id="Home"
-      className="flex items-center w-full min-h-dvh text-white px-6 md:px-12 lg:px-20 border-b border-b-white/10"
+      className="
+        relative
+        flex items-center justify-center
+        w-full min-h-dvh
+        text-white
+        px-6 md:px-12 lg:px-20
+        border-b border-white/10
+        overflow-hidden
+      "
     >
-      <div
+      {/* Content */}
+      <div className="relative z-10 max-w-[100rem] px-[clamp(1rem,4vw,3rem)] w-full">
 
-      >
-        <h1 className={`flex flex-col justify-center w-full h-full max-w-7xl
-          transition-all duration-1000 ease-out
-          ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-          font-archivo font-bold leading-tight mb-6 text-[clamp(2.5rem,5vw,4rem)]
-        `} >
-          Discover Your Next Favorite Sound
+        <h1
+          className={`
+            font-semibold tracking-tight
+            leading-[1.05]
+            mb-6
+
+            text-[clamp(2.5rem,5vw,4.2rem)]
+
+            transition-all duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)]
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}
+          `}
+        >
+          Discover Your
+          <span className="block text-white/70">
+            Next Favorite Sound
+          </span>
         </h1>
 
-        <p className="mb-10 max-w-2xl text-[clamp(1rem,1.5vw,1.25rem)] text-white/80">
-          Check out my tracks and get in contact if you want to use my music for your next project!
+        <p
+          className={`
+            mb-10 max-w-xl
+            text-[clamp(1rem,1.5vw,1.2rem)]
+            text-white/70
+
+            transition-all duration-[1200ms] delay-200 ease-[cubic-bezier(0.22,1,0.36,1)]
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}
+          `}
+        >
+          Explore my latest tracks and get in touch if you'd like to use my music in your next project.
         </p>
 
-        <a 
+        <a
           href="#Music"
-          className="w-fit h-10 bg-[#FFC50F]/80 rounded-3xl gap-2 shadow-lg flex items-center justify-center px-4 hover:border-2 hover:border-white/20 transition"
+          className="
+            group
+            inline-flex items-center gap-2
+            h-11 px-5
+
+            rounded-md
+            bg-[#FFC50F]
+            text-black font-medium
+
+            shadow-[0_6px_20px_rgba(255,197,15,0.35)]
+            transition-all duration-300
+
+            hover:scale-[1.04]
+            hover:shadow-[0_10px_30px_rgba(255,197,15,0.5)]
+          "
         >
-          My tracks
-          <DownwardsArrowIcon />
+          My Tracks
+          <span className="transition-transform duration-300 group-hover:translate-y-1">
+            <DownwardsArrowIcon />
+          </span>
         </a>
       </div>
 
-      <div className="blob">hello</div>
+      {/* Blob */}
+      <div className="blob" />
 
+      {/* Scroll indicator */}
       <ScrollIndicator />
     </section>
   )

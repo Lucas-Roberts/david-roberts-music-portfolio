@@ -61,10 +61,6 @@ function SongCard({ song }: SongCardProps) {
       wavesurfer.seekTo(0)
     })
 
-    wavesurfer.on("error", (err) => {
-      console.error("WaveSurfer error:", err)
-    })
-
     wavesurferRef.current = wavesurfer
 
     return () => {
@@ -98,44 +94,50 @@ function SongCard({ song }: SongCardProps) {
     <div
       className="
         relative
-        shadow-[0_0_12px_rgba(0,0,0,0.4)]
         w-full
         h-55
         grid
-        grid-rows-2
+        grid-rows-[60%_40%]
         min-h-0
-        rounded-sm
+        rounded-md
+        overflow-hidden
+
+        bg-[#1c2024]/95
+        border border-white/10
+
+        shadow-[0_10px_35px_rgba(0,0,0,0.45)]
+        transition-all duration-500 ease-out
+
+        hover:-translate-y-1
+        hover:shadow-[0_15px_45px_rgba(0,0,0,0.6)]
       "
     >
-      {/* Top 50% (Waveform) */}
-      <div className="min-h-0 flex items-center bg-amber-400/20">
+      {/* Top (Waveform) */}
+      <div className="relative min-h-0 flex items-center justify-center bg-gradient-to-b from-amber-400/20 to-transparent px-4">
+        {/* subtle overlay glow */}
+        <div className="absolute inset-0 bg-white/5 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
         <div
           ref={waveformRef}
           className="w-full cursor-pointer"
         />
-        
-
       </div>
 
-      {/* Bottom 50% (Content) */}
-      <div className="min-h-0  p-3 flex flex-col justify-between">
-        <div className="grid gap-2">
-          <h2 className="flex items-baseline gap-2">
-            <span className="text-[clamp(1rem,1.5vw,1.25rem)]">
-              {song?.title}
-            </span>
+      {/* Bottom (Content) */}
+      <div className="min-h-0 p-4 flex flex-col justify-between">
+        <div className="grid gap-1">
+          <h2 className="text-[clamp(1rem,1.5vw,1.2rem)] font-medium tracking-tight text-white">
+            {song?.title}
           </h2>
 
-          <p className="text-[clamp(0.85rem,1.2vw,1rem)] font-extralight line-clamp-3 leading-relaxed">
+          <p className="text-[clamp(0.85rem,1.2vw,0.95rem)] text-white/60 font-light">
             {song?.artist}
           </p>
         </div>
 
-        <span className="absolute bottom-1 right-1  whitespace-nowrap">
+        <span className="absolute bottom-2 right-3 text-[0.7rem] text-white/40">
           {formatTime(currentTime)} / {formatTime(duration)}
         </span>
-
-
       </div>
 
       {/* Floating Play Button */}
@@ -143,19 +145,25 @@ function SongCard({ song }: SongCardProps) {
         onClick={togglePlay}
         className={`
           absolute
-          right-6
-          top-1/2
+          right-5
+          top-[60%]
           -translate-y-1/2
           w-14 h-14
           flex items-center justify-center
           rounded-full
+
           bg-blue-500
-          transition-all duration-200
+          transition-all duration-300
           hover:scale-110 hover:bg-blue-600
           active:scale-95
+
           shadow-lg
           cursor-pointer
-          ${playing ? "shadow-[0_0_20px_rgba(59,130,246,0.95)]" : ""}
+
+          ${playing 
+            ? "shadow-[0_0_25px_rgba(59,130,246,0.9)] scale-105" 
+            : ""
+          }
         `}
       >
         <PlayPauseIcon className="scale-50" playing={playing} />

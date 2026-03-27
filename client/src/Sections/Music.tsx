@@ -28,35 +28,70 @@ function Music() {
 
   return (
     <section
-  id="Music"
-  className="max-w-7xl mx-auto  "
->
-  <div className="w-full  mx-auto  px-[clamp(1rem,4vw,3rem)]">
+      id="Music"
+      className="max-w-[100rem] mx-auto"
+    >
+      <div className="w-full px-[clamp(1rem,4vw,3rem)]">
 
-    <div className="  mb-[clamp(2rem,5vw,4rem)] mx-auto text-center">
-      <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-white tracking-tight">
-        My Tracks
-      </h2>
-    </div>
+        {/* Title */}
+        <div className="mb-[clamp(2rem,5vw,4rem)]">
+          <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-white tracking-tight">
+            My Tracks
+          </h2>
+          <p className="text-white/60 mt-2 text-sm">
+            A selection of my latest work
+          </p>
+        </div>
 
-    
-    <div className="
-      grid
-     
-      grid-cols-[repeat(auto-fit,minmax(400px,1fr))]
-      lg:grid-cols-2
-      gap-[clamp(1rem,2vw,1.5rem)]
-      items-stretch
-    ">
+        {/* Grid */}
+        <div
+          className="
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-3
+            gap-[clamp(1rem,2vw,1.5rem)]
+            items-stretch
+          "
+        >
+          {/* Existing songs */}
+          {songs.map((song) => (
+            <SongCard key={song._id} song={song} />
+          ))}
 
-      {songs.map((song) => (
-        <SongCard key={song._id} song={song} />
-      ))}
+          {/* Coming Soon Card */}
+          <div
+            className="
+              h-full
+              flex flex-col items-center justify-center
+              text-center
+              border border-dashed border-white/20
+              rounded-sm
+              bg-[#1c2024]/40
+              text-white/50
+              transition-all duration-300
+              hover:border-white/40 hover:text-white/70
+            "
+          >
+            <div className="text-lg font-semibold mb-2">
+              Coming Soon...
+            </div>
+            <div className="text-sm opacity-70">
+              New tracks on the way
+            </div>
+          </div>
 
-    </div>
+        </div>
 
-  </div>
-</section>
+        {/* Empty state */}
+        {songs.length === 0 && (
+          <div className="text-center text-white/50 mt-10">
+            No tracks available
+          </div>
+        )}
+
+      </div>
+    </section>
   )
 }
 

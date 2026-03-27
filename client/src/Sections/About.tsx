@@ -11,8 +11,8 @@ function About() {
           flex
           flex-wrap
           gap-[clamp(1rem,3vw,2.5rem)]
-          px-[clamp(0.3rem,2vw,1rem)]
-          max-w-7xl
+          px-[clamp(1rem,4vw,3rem)]
+          max-w-[100rem]
           mx-auto
         "
       >
