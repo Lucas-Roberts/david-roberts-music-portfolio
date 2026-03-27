@@ -34,7 +34,7 @@ function SongCard({ song }: SongCardProps) {
     const wavesurfer = WaveSurfer.create({
       container: waveformRef.current,
       waveColor: "rgb(160, 165, 171)",
-      progressColor: "rgba(255,255,255,0.7)",
+      progressColor: "rgba(255,255,255,1)",
       height: 80,
       barWidth: 1,
       barGap: 2,
@@ -100,10 +100,11 @@ function SongCard({ song }: SongCardProps) {
         relative
         shadow-[0_0_12px_rgba(0,0,0,0.4)]
         w-full
-        h-60
+        h-55
         grid
         grid-rows-2
         min-h-0
+        rounded-sm
       "
     >
       {/* Top 50% (Waveform) */}
@@ -125,7 +126,7 @@ function SongCard({ song }: SongCardProps) {
             </span>
           </h2>
 
-          <p className="text-[clamp(0.85rem,1.2vw,1rem)] line-clamp-3 leading-relaxed">
+          <p className="text-[clamp(0.85rem,1.2vw,1rem)] font-extralight line-clamp-3 leading-relaxed">
             {song?.artist}
           </p>
         </div>
@@ -145,7 +146,7 @@ function SongCard({ song }: SongCardProps) {
           right-6
           top-1/2
           -translate-y-1/2
-          w-12 h-12
+          w-14 h-14
           flex items-center justify-center
           rounded-full
           bg-blue-500
@@ -157,7 +158,7 @@ function SongCard({ song }: SongCardProps) {
           ${playing ? "shadow-[0_0_20px_rgba(59,130,246,0.95)]" : ""}
         `}
       >
-        <PlayPauseIcon playing={playing} />
+        <PlayPauseIcon className="scale-50" playing={playing} />
       </button>
     </div>
   )
