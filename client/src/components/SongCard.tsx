@@ -1,180 +1,4 @@
-// import { useEffect, useRef, useState } from "react"
-// import WaveSurfer from "wavesurfer.js"
-// import PlayPauseIcon from "./icons/PlayPauseIcon"
-
-// let activePlayer: WaveSurfer | null = null
-
-// type Song = {
-//   _id: string
-//   title: string
-//   artist: string
-//   releaseDate: string
-//   audioFile: {
-//     asset: {
-//       url: string
-//     }
-//   }
-// }
-
-// type SongCardProps = {
-//   song: Song
-// }
-
-// function SongCard({ song }: SongCardProps) {
-//   const waveformRef = useRef<HTMLDivElement | null>(null)
-//   const wavesurferRef = useRef<WaveSurfer | null>(null)
-
-//   const [duration, setDuration] = useState(0)
-//   const [currentTime, setCurrentTime] = useState(0)
-//   const [playing, setPlaying] = useState(false)
-
-//   useEffect(() => {
-//     if (!waveformRef.current) return
-
-//     const wavesurfer = WaveSurfer.create({
-//       container: waveformRef.current,
-//       waveColor: "rgb(160, 165, 171)",
-//       progressColor: "rgba(255,255,255,1)",
-//       height: 80,
-//       barWidth: 1,
-//       barGap: 2,
-//       cursorColor: "transparent",
-//       backend: "MediaElement",
-//     })
-
-//     wavesurfer.load(song.audioFile.asset.url)
-
-//     wavesurfer.on("ready", () => {
-//       setDuration(wavesurfer.getDuration())
-//     })
-
-//     wavesurfer.on("timeupdate", () => {
-//       setCurrentTime(wavesurfer.getCurrentTime())
-//     })
-
-//     wavesurfer.on("play", () => setPlaying(true))
-//     wavesurfer.on("pause", () => setPlaying(false))
-
-//     wavesurfer.on("finish", () => {
-//       setPlaying(false)
-//       setCurrentTime(0)
-//       wavesurfer.seekTo(0)
-//     })
-
-//     wavesurferRef.current = wavesurfer
-
-//     return () => {
-//       wavesurfer.destroy()
-//     }
-//   }, [song])
-
-//   const togglePlay = () => {
-//     const player = wavesurferRef.current
-//     if (!player) return
-
-//     if (activePlayer && activePlayer !== player) {
-//       activePlayer.stop()
-//       activePlayer.seekTo(0)
-//     }
-
-//     player.playPause()
-//     activePlayer = player
-//   }
-
-//   const formatTime = (time: number) => {
-//     const minutes = Math.floor(time / 60)
-//     const seconds = Math.floor(time % 60)
-//       .toString()
-//       .padStart(2, "0")
-
-//     return `${minutes}:${seconds}`
-//   }
-
-//   return (
-//     <div
-//       className="
-//         relative
-//         w-full
-//         h-55
-//         grid
-//         grid-rows-[60%_40%]
-//         min-h-0
-//         rounded-md
-//         overflow-hidden
-
-//         bg-[#1c2024]/95
-//         border border-white/10
-
-//         shadow-[0_10px_35px_rgba(0,0,0,0.45)]
-//         transition-all duration-500 ease-out
-
-//         hover:-translate-y-1
-//         hover:shadow-[0_15px_45px_rgba(0,0,0,0.6)]
-//       "
-//     >
-//       {/* Top (Waveform) */}
-//       <div className="relative min-h-0 flex items-center justify-center bg-gradient-to-b from-amber-400/20 to-transparent px-4">
-//         {/* subtle overlay glow */}
-//         <div className="absolute inset-0 bg-white/5 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-//         <div
-//           ref={waveformRef}
-//           className="w-full cursor-pointer"
-//         />
-//       </div>
-
-//       {/* Bottom (Content) */}
-//       <div className="min-h-0 p-4 flex flex-col justify-between">
-//         <div className="grid gap-1">
-//           <h2 className="text-[clamp(1rem,1.5vw,1.2rem)] font-medium tracking-tight text-white">
-//             {song?.title}
-//           </h2>
-
-//           <p className="text-[clamp(0.85rem,1.2vw,0.95rem)] text-white/60 font-light">
-//             {song?.artist}
-//           </p>
-//         </div>
-
-//         <span className="absolute bottom-2 right-3 text-[0.7rem] text-white/40">
-//           {formatTime(currentTime)} / {formatTime(duration)}
-//         </span>
-//       </div>
-
-//       {/* Floating Play Button */}
-//       <button
-//         onClick={togglePlay}
-//         className={`
-//           absolute
-//           right-5
-//           top-[60%]
-//           -translate-y-1/2
-//           w-14 h-14
-//           flex items-center justify-center
-//           rounded-full
-
-//           bg-blue-500
-//           transition-all duration-300
-//           hover:scale-110 hover:bg-blue-600
-//           active:scale-95
-
-//           shadow-lg
-//           cursor-pointer
-
-//           ${playing 
-//             ? "shadow-[0_0_25px_rgba(59,130,246,0.9)] scale-105" 
-//             : ""
-//           }
-//         `}
-//       >
-//         <PlayPauseIcon className="scale-50" playing={playing} />
-//       </button>
-//     </div>
-//   )
-// }
-
-// export default SongCard
-
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import WaveSurfer from "wavesurfer.js"
 import PlayPauseIcon from "./icons/PlayPauseIcon"
 
@@ -205,7 +29,7 @@ function SongCard({ song }: SongCardProps) {
   const [playing, setPlaying] = useState(false)
   const [initialized, setInitialized] = useState(false)
 
-  // 🚀 Lazy init
+  // 🚀 Initialize WaveSurfer
   const initWaveSurfer = () => {
     if (!waveformRef.current || wavesurferRef.current) return
 
@@ -243,12 +67,46 @@ function SongCard({ song }: SongCardProps) {
     setInitialized(true)
   }
 
-  const togglePlay = () => {
-    const player = wavesurferRef.current
+  // 👀 Lazy load when visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          initWaveSurfer()
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.3 }
+    )
 
-    // init if needed
+    if (waveformRef.current) {
+      observer.observe(waveformRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
+  // 🧹 Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      wavesurferRef.current?.destroy()
+      wavesurferRef.current = null
+    }
+  }, [])
+
+  const togglePlay = () => {
+    let player = wavesurferRef.current
+
+    // Init if needed
     if (!player) {
       initWaveSurfer()
+
+      // wait briefly then play
+      setTimeout(() => {
+        wavesurferRef.current?.play()
+        activePlayer = wavesurferRef.current
+      }, 300)
+
       return
     }
 
@@ -295,17 +153,15 @@ function SongCard({ song }: SongCardProps) {
       {/* Waveform */}
       <div className="relative min-h-0 flex items-center justify-center bg-gradient-to-b from-amber-400/20 to-transparent px-4">
         
-        {/* Placeholder BEFORE load */}
         {!initialized && (
           <div className="absolute inset-0 flex items-center justify-center text-white/30 text-xs">
-            Tap to load waveform
+            Loading waveform...
           </div>
         )}
 
         <div
           ref={waveformRef}
-          onClick={initWaveSurfer}
-          className="w-full cursor-pointer"
+          className="w-full"
         />
       </div>
 
