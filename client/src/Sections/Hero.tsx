@@ -75,7 +75,7 @@ function Hero() {
           "
         >
           My Tracks
-          <span className="transition-transform duration-300 group-hover:translate-y-1">
+          <span className="transition-transform duration-300 ">
             <DownwardsArrowIcon />
           </span>
         </a>

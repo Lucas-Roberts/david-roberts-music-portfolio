@@ -1,13 +1,18 @@
 function Contact() {
   return (
-    <section id="Contact" className="w-full px-6 py-24 flex justify-center">
+    <section id="Contact" className="w-full py-24 flex justify-center">
 
-      <div className="w-full max-w-6xl">
+      <div className="w-full max-w-[100rem]">
 
 
-        <h2 className="text-4xl font-bold text-center mb-14 text-white">
-          Contact
-        </h2>
+        <div className="mb-[clamp(2rem,5vw,4rem)]">
+          <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-white tracking-tight">
+            My Tracks
+          </h2>
+            <p className="text-white/60 mt-2 text-sm">
+            A selection of my latest work
+            </p>
+        </div>
 
         <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
 

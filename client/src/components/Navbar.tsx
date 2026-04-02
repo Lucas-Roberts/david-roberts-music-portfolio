@@ -40,7 +40,7 @@ export default function Navbar() {
         shadow-[0_8px_30px_rgba(0,0,0,0.3)]
       "
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className=" mx-auto px-8 lg:px-16">
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
