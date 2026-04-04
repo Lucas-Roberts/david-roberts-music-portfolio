@@ -9,13 +9,18 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://skye-music.co.uk" // 👈 REPLACE THIS
+    "https://skye-music.co.uk"
   ],
 }));
 
 app.use(express.json());
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+// ✅ Root route (prevents "Cannot GET /")
+app.get("/", (req, res) => {
+  res.send("API is running 🚀");
+});
 
 // ✅ Health check route
 app.get("/api", (req, res) => {
@@ -51,7 +56,7 @@ app.post("/contact", async (req, res) => {
 
   try {
     const response = await resend.emails.send({
-      from: "Portfolio <hello@skye-music.co.uk>", // ✅ USE YOUR DOMAIN
+      from: "Portfolio <hello@skye-music.co.uk>",
       to: "lucasroberts13216@icloud.com",
       reply_to: email,
       subject: `New message from ${firstName} ${lastName}`,
