@@ -33,7 +33,7 @@ app.get("/test-email", async (req, res) => {
 
   try {
     const response = await resend.emails.send({
-      from: "Portfolio <hello@skye-music.co.uk>",
+      from: "Portfolio <onboarding@resend.dev>",
       to: "lucasroberts13216@icloud.com",
       subject: "Test email",
       html: "<p>This is a test email</p>",
@@ -47,7 +47,7 @@ app.get("/test-email", async (req, res) => {
     res.status(500).send("Error sending email");
   }
 });
-
+//hello@skye-music.co.uk
 // ✅ CONTACT ROUTE
 app.post("/contact", async (req, res) => {
   console.log("🔥 CONTACT HIT:", req.body);
