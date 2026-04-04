@@ -14,7 +14,7 @@ function ContactSection() {
     setLoading(true)
 
     try {
-      const res = await fetch("http://localhost:8080/contact", {
+      const res = await fetch("http://skye-music.co.uk.onrender.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
