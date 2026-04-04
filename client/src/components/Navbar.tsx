@@ -68,8 +68,8 @@ export default function Navbar() {
                 onClick={() => setActive(tab)}
                 className={`
                   relative
-                  text-sm
-                  font-medium
+                  text-[1rem] 
+                
                   tracking-wide
 
                   text-white/70

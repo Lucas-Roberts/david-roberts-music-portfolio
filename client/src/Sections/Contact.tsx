@@ -1,75 +1,172 @@
-function Contact() {
+import { useState } from "react"
+
+function ContactSection() {
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+
+    try {
+      const res = await fetch("http://localhost:8080/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          message,
+        }),
+      })
+
+      if (res.ok) {
+        setSuccess(true)
+        setFirstName("")
+        setLastName("")
+        setEmail("")
+        setMessage("")
+      } else {
+        alert("Something went wrong")
+      }
+    } catch (err) {
+      alert("Server error")
+    }
+
+    setLoading(false)
+  }
+
   return (
-    <section id="Contact" className="w-full py-24 flex justify-center">
-
-      <div className="w-full max-w-[100rem]">
-
-
-        <div className="mb-[clamp(2rem,5vw,4rem)]">
-          <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-white tracking-tight">
-            My Tracks
+    <section className="w-full py-16 flex justify-center">
+      <div
+        className="
+          w-full max-w-[100rem]
+          bg-[#1c2024]/95
+          border border-white/10
+          rounded-xl
+          shadow-[0_10px_35px_rgba(0,0,0,0.45)]
+          px-[clamp(1rem,4vw,3rem)] md:p-10
+          grid gap-8
+        "
+      >
+        {/* Header */}
+        <div className="text-center md:text-left grid gap-2">
+          <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
+            Get in touch
           </h2>
-            <p className="text-white/60 mt-2 text-sm">
-            A selection of my latest work
-            </p>
+          <p className="text-white/60 text-sm md:text-base">
+            Feel free to reach out for collaborations or just a friendly hello 👋
+          </p>
         </div>
 
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Success message */}
+        {success && (
+          <div className="text-green-400 text-sm">
+            Message sent successfully!
+          </div>
+        )}
 
-
-          <div className="flex flex-col gap-6">
-
-            <div>
-              <label className="block text-sm text-gray-300 mb-2">
-                Name
-              </label>
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="grid gap-6">
+          {/* Name row */}
+          <div className="grid md:grid-cols-2 gap-4">
+            
+            <div className="grid gap-1">
+              <label className="text-xs text-white/60">First name</label>
               <input
                 type="text"
-                placeholder="John Smith"
-                className="w-full rounded-lg border border-white/10 bg-[#1c2024]/95 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-400 transition"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="John"
+                required
+                className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition"
               />
             </div>
 
-            <div>
-              <label className="block text-sm text-gray-300 mb-2">
-                Email
-              </label>
+            <div className="grid gap-1">
+              <label className="text-xs text-white/60">Last name</label>
               <input
-                type="email"
-                placeholder="JohnSmith@email.com"
-                className="w-full rounded-lg border border-white/10 bg-[#1c2024]/95 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-400 transition"
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Doe"
+                required
+                className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition"
               />
             </div>
 
           </div>
 
-          <div className="flex flex-col">
-
-            <label className="block text-sm text-gray-300 mb-2">
-              Message
-            </label>
-
-            <textarea
-              placeholder="Write your message..."
-              rows={6}
-              className="w-full h-full rounded-lg border border-white/10 bg-[#1c2024]/95 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-400 transition resize-none"
+          {/* Email */}
+          <div className="grid gap-1">
+            <label className="text-xs text-white/60">Email address</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@email.com"
+              required
+              className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition"
             />
-
           </div>
 
+          {/* Message */}
+          <div className="grid gap-1">
+            <label className="text-xs text-white/60">Message</label>
+            <textarea
+              rows={5}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Write your message here..."
+              required
+              className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition resize-none"
+            />
+          </div>
+
+          {/* Bottom row */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-2">
+            
+            {/* Submit */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="
+                w-full md:w-fit
+                px-6 py-3
+                rounded-md
+                bg-blue-500
+                text-white
+                font-medium
+                transition-all duration-300
+                hover:bg-blue-600
+                hover:scale-[1.02]
+                active:scale-[0.98]
+                shadow-lg
+                disabled:opacity-50
+              "
+            >
+              {loading ? "Sending..." : "Send Message"}
+            </button>
+
+            {/* Email copy */}
+            <div className="flex items-center justify-end">
+              <div className="px-4 py-2 rounded-md bg-white/5 border border-white/10 text-white/80 font-mono text-xs md:text-sm select-all">
+                your@email.com
+              </div>
+            </div>
+
+          </div>
         </form>
-
-      
-        <div className="flex justify-center mt-10">
-          <button className="px-8 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition text-white font-medium">
-            Send Message
-          </button>
-        </div>
-
       </div>
-
     </section>
   )
 }
 
-export default Contact
+export default ContactSection

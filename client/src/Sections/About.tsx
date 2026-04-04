@@ -16,18 +16,18 @@ function About() {
           mx-auto
         "
       >
-        <div className="w-full sm:w-[48%] lg:w-[31%]">
+        <div className="w-full flex-1">
           <AboutCard 
             title="Background" 
             description="I’ve spent over 40 years playing music, I started out on bass guitar and got comfortable with playing a few other instruments too. Over the past few years, I’ve become more interested in creating and releasing my own music, bringing together decades of experience and a deep passion for sound into every track."  
           />
         </div>
 
-        <div className="w-full sm:w-[48%] lg:w-[31%]">
+        <div className="w-full flex-none sm:flex-1">
           <AboutCard title="About Me" description="22" />
         </div>
 
-        <div className="w-full sm:w-[48%] lg:w-[31%]">
+        <div className="w-full flex-none md:flex-1">
           <AboutCard title="What I Do" description="22" />
         </div>
       </div>

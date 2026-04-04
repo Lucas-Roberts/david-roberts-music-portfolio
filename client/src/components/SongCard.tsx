@@ -151,7 +151,7 @@ function SongCard({ song }: SongCardProps) {
       "
     >
       {/* Waveform */}
-      <div className="relative min-h-0 flex items-center justify-center bg-gradient-to-b from-amber-400/20 to-transparent px-4">
+      <div className="relative min-h-0 flex items-center justify-center  px-4">
         
         {!initialized && (
           <div className="absolute inset-0 flex items-center justify-center text-white/30 text-xs">
@@ -172,14 +172,18 @@ function SongCard({ song }: SongCardProps) {
             {song.title}
           </h2>
 
-          <p className="text-[clamp(0.85rem,1.2vw,0.95rem)] text-white/60 font-light">
-            {song.artist}
-          </p>
+          <div className="flex justify-between text-center">
+            <p className="text-[clamp(0.85rem,1.2vw,0.95rem)] text-white/60 font-light">
+              {song.artist}
+            </p>
+
+            <span className="text-[clamp(0.75rem,1vw,0.85rem)] text-white/40">
+              {formatTime(currentTime)} / {formatTime(duration)}
+            </span>
+          </div>  
         </div>
 
-        <span className="absolute bottom-2 right-3 text-[0.7rem] text-white/40">
-          {formatTime(currentTime)} / {formatTime(duration)}
-        </span>
+
       </div>
 
       {/* Play Button */}

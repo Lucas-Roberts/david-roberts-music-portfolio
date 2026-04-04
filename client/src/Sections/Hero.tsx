@@ -69,9 +69,10 @@ function Hero() {
 
             shadow-[0_6px_20px_rgba(255,197,15,0.35)]
             transition-all duration-300
-
-            hover:scale-[1.04]
+            
             hover:shadow-[0_10px_30px_rgba(255,197,15,0.5)]
+
+            
           "
         >
           My Tracks
