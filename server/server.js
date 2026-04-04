@@ -29,7 +29,7 @@ app.get("/api", (req, res) => {
 
 // 🧪 TEST EMAIL ROUTE
 app.get("/test-email", async (req, res) => {
-  console.log("🔥 TEST ROUTE HIT");
+  console.log("TEST ROUTE HIT");
 
   try {
     const response = await resend.emails.send({
@@ -43,7 +43,7 @@ app.get("/test-email", async (req, res) => {
 
     res.send("Email sent!");
   } catch (err) {
-    console.error("❌ Test email error:", err);
+    console.error("Test email error:", err);
     res.status(500).send("Error sending email");
   }
 });
@@ -78,7 +78,7 @@ Message: ${message}
 
     res.json({ success: true });
   } catch (err) {
-    console.error("❌ Contact error:", err);
+    console.error("  Contact error:", err);
     res.status(500).json({ error: "Failed to send email" });
   }
 });

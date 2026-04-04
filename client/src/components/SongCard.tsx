@@ -151,7 +151,7 @@ function SongCard({ song }: SongCardProps) {
       "
     >
       {/* Waveform */}
-      <div className="relative min-h-0 flex items-center justify-center  px-4">
+      <div className="relative min-h-0 flex items-center justify-center  px-4 bg-gray-900">
         
         {!initialized && (
           <div className="absolute inset-0 flex items-center justify-center text-white/30 text-xs">

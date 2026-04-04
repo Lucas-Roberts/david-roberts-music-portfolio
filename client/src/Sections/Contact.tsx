@@ -44,24 +44,20 @@ function ContactSection() {
   }
 
   return (
-    <section className="w-full py-16 flex justify-center">
+    <section id="Contact" className="w-full py-16 flex justify-center">
       <div
         className="
           w-full max-w-[100rem]
-          bg-[#1c2024]/95
-          border border-white/10
-          rounded-xl
-          shadow-[0_10px_35px_rgba(0,0,0,0.45)]
-          px-[clamp(1rem,4vw,3rem)] md:p-10
+          px-[clamp(1rem,4vw,3rem)] 
           grid gap-8
         "
       >
         {/* Header */}
         <div className="text-center md:text-left grid gap-2">
-          <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
+          <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold text-white tracking-tight">
             Get in touch
           </h2>
-          <p className="text-white/60 text-sm md:text-base">
+          <p className="text-white/60 text-sm ">
             Feel free to reach out for collaborations or just a friendly hello 👋
           </p>
         </div>
@@ -91,12 +87,12 @@ function ContactSection() {
             </div>
 
             <div className="grid gap-1">
-              <label className="text-xs text-white/60">Last name</label>
+              <label className="text-xs text-white/60">Last name (optional)</label>
               <input
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                placeholder="Doe"
+                placeholder="Smith"
                 required
                 className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition"
               />
@@ -111,8 +107,8 @@ function ContactSection() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@email.com"
               required
+              placeholder="JohnSmith@email.com"
               className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition"
             />
           </div>
