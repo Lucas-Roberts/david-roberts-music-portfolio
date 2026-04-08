@@ -34,7 +34,7 @@ app.get("/test-email", async (req, res) => {
   try {
     const response = await resend.emails.send({
       from: "Portfolio <hello@skye-music.co.uk>",
-      to: "lucasroberts13216@icloud.com",
+      to: "davidbb1100sroberts@gmail.com",
       subject: "Test email",
       html: "<p>This is a test email</p>",
     });
