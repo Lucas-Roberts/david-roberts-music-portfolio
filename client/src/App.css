@@ -2,10 +2,14 @@
 
 .blob {
   position: absolute;
-  width: 55vw;
-  height: 55vw;
-  top: -20%;
-  right: -10%;
+
+  width: clamp(300px, 55vw, 800px);
+  height: clamp(300px, 55vw, 800px);
+
+  top: 50%;
+  right: 0;
+
+  transform: translate(30%, -50%);
 
   background: radial-gradient(
     circle at 30% 30%,
@@ -18,16 +22,6 @@
   opacity: 0.5;
 
   animation: blobFloat 12s ease-in-out infinite;
-}
-
-/* subtle floating motion */
-@keyframes blobFloat {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-20px, 30px) scale(1.05);
-  }
 }
 
 

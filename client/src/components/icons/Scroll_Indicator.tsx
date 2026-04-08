@@ -23,6 +23,7 @@ function ScrollIndicator() {
         scale-230
         transition-all duration-300
         animate-bounce
+        sm:opacity-0
         ${hidden ? "opacity-0 translate-y-10" : "opacity-30"}
       `}
     >

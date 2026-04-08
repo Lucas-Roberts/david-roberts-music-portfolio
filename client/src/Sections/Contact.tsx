@@ -151,12 +151,7 @@ function ContactSection() {
               {loading ? "Sending..." : "Send Message"}
             </button>
 
-            {/* Email copy */}
-            <div className="flex items-center justify-end">
-              <div className="px-4 py-2 rounded-md bg-white/5 border border-white/10 text-white/80 font-mono text-xs md:text-sm select-all">
-                your@email.com
-              </div>
-            </div>
+
 
           </div>
         </form>
