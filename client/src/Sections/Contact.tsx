@@ -14,7 +14,7 @@ function ContactSection() {
     setLoading(true)
 
     try {
-      const res = await fetch("https://skye-music.co.uk.onrender.com/contact", {
+      const res = await fetch("https://david-roberts-music-portfolio-server.onrender.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
