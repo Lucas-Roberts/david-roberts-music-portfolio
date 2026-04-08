@@ -55,7 +55,7 @@ export default function Navbar() {
               hover:text-[#FFC50F]
             "
           >
-            Skye<span className="text-white/50">.Music</span>
+            Skye<span className="text-white/50">-Music</span>
           </a>
 
           {/* Nav links */}
