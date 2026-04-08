@@ -34,11 +34,11 @@ function Music() {
       <div className="w-full px-[clamp(1rem,4vw,3rem)]">
 
         {/* Title */}
-        <div className="mb-[clamp(2rem,5vw,4rem)]">
-          <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-white tracking-tight">
+        <div className="mb-[clamp(2rem,5vw,4rem)] text-center md:text-left ">
+          <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-white tracking-tight ">
             My Tracks
           </h2>
-          <p className="text-white/60 mt-2 text-sm">
+          <p className="text-white/60 mt-2 text-md">
             A selection of my latest work
           </p>
         </div>

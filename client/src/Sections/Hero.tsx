@@ -67,10 +67,10 @@ function Hero() {
             bg-[#FFC50F]
             text-black font-medium
 
-            shadow-[0_6px_20px_rgba(255,197,15,0.35)]
+            shadow-[0_2px_20px_rgba(255,197,15,0.35)]
             transition-all duration-300
             
-            hover:shadow-[0_10px_30px_rgba(255,197,15,0.5)]
+            hover:shadow-[0_2px_30px_rgba(255,197,15,0.8)]
 
             
           "

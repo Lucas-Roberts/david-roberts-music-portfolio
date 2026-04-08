@@ -14,7 +14,7 @@ function ContactSection() {
     setLoading(true)
 
     try {
-      const res = await fetch("http://skye-music.co.uk.onrender.com/contact", {
+      const res = await fetch("https://skye-music.co.uk.onrender.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,10 +55,10 @@ function ContactSection() {
         {/* Header */}
         <div className="text-center md:text-left grid gap-2">
           <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold text-white tracking-tight">
-            Get in touch
+            Contact
           </h2>
-          <p className="text-white/60 text-sm ">
-            Feel free to reach out for collaborations or just a friendly hello 👋
+          <p className="text-white/60 text-md ">
+            Get in touch if you have any questions
           </p>
         </div>
 
@@ -75,26 +75,26 @@ function ContactSection() {
           <div className="grid md:grid-cols-2 gap-4">
             
             <div className="grid gap-1">
-              <label className="text-xs text-white/60">First name</label>
+              <label className="text-md text-white/80">First name</label>
               <input
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="John"
                 required
-                className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition"
+                className="w-full px-4 py-5 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition"
               />
             </div>
 
             <div className="grid gap-1">
-              <label className="text-xs text-white/60">Last name (optional)</label>
+              <label className="text-md text-white/80">Last name</label>
               <input
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                placeholder="Smith"
+                placeholder="Smith (Optional)"
                 required
-                className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition"
+                className="w-full px-4 py-5 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition"
               />
             </div>
 
@@ -102,20 +102,20 @@ function ContactSection() {
 
           {/* Email */}
           <div className="grid gap-1">
-            <label className="text-xs text-white/60">Email address</label>
+            <label className="text-md text-white/80">Email address</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="JohnSmith@email.com"
-              className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition"
+              className="w-full px-4 py-4 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition"
             />
           </div>
 
           {/* Message */}
           <div className="grid gap-1">
-            <label className="text-xs text-white/60">Message</label>
+            <label className="text-md text-white/80">Message</label>
             <textarea
               rows={5}
               value={message}

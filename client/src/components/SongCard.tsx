@@ -37,7 +37,7 @@ function SongCard({ song }: SongCardProps) {
       container: waveformRef.current,
       waveColor: "rgb(160,165,171)",
       progressColor: "rgba(255,255,255,1)",
-      height: 80,
+      height: 90,
       barWidth: 1,
       barGap: 2,
       cursorColor: "transparent",
@@ -137,24 +137,25 @@ function SongCard({ song }: SongCardProps) {
         grid
         grid-rows-[60%_40%]
         min-h-0
-        rounded-md
+        rounded-lg
         overflow-hidden
 
-        bg-[#1c2024]/95
+        bg-white/5
         border border-white/10
 
         shadow-[0_10px_35px_rgba(0,0,0,0.45)]
         transition-all duration-500 ease-out
 
-        hover:-translate-y-1
+      
         hover:shadow-[0_15px_45px_rgba(0,0,0,0.6)]
       "
     >
       {/* Waveform */}
-      <div className="relative min-h-0 flex items-center justify-center  px-4 bg-gray-900">
-        
+      <div className="relative min-h-0 flex items-center justify-center  
+      px-4 border-b border-b-white/10">
+
         {!initialized && (
-          <div className="absolute inset-0 flex items-center justify-center text-white/30 text-xs">
+          <div className="absolute inset-0 flex items-center justify-center text-white/30  text-xs">
             Loading waveform...
           </div>
         )}
@@ -180,7 +181,7 @@ function SongCard({ song }: SongCardProps) {
             <span className="text-[clamp(0.75rem,1vw,0.85rem)] text-white/40">
               {formatTime(currentTime)} / {formatTime(duration)}
             </span>
-          </div>  
+          </div>
         </div>
 
 
@@ -194,13 +195,13 @@ function SongCard({ song }: SongCardProps) {
           right-5
           top-[60%]
           -translate-y-1/2
-          w-14 h-14
+          w-13 h-13
           flex items-center justify-center
           rounded-full
 
-          bg-blue-500
+          bg-[#FFC50F]
           transition-all duration-300
-          hover:scale-110 hover:bg-blue-600
+          hover:scale-110 
           active:scale-95
 
           shadow-lg

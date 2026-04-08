@@ -85,7 +85,7 @@ export default function Navbar() {
                 {/* underline indicator */}
                 <span
                   className={`
-                    absolute left-0 -bottom-1
+                    absolute left-0 bottom-0
                     h-[2px] w-full
                     bg-[#FFC50F]
                     rounded-full

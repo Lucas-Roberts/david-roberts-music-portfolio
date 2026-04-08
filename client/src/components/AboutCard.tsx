@@ -10,12 +10,9 @@ function AboutCard({ title, description }: AboutCardProps) {
         group
         relative
         h-full w-full
-        rounded-2xl
+        rounded-lg
         overflow-hidden
-
-        bg-gradient-to-b from-white/[0.04] to-transparent
-        backdrop-blur-xl
-
+        bg-white/5
         border border-white/10
         transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
 
@@ -23,20 +20,12 @@ function AboutCard({ title, description }: AboutCardProps) {
         hover:border-white/20
       "
     >
-      {/* Soft gradient glow */}
-      <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10" />
-      </div>
 
-      {/* Noise / texture layer (subtle premium feel) */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('/noise.png')]" />
-
-      {/* Content */}
       <div className="relative h-full flex flex-col justify-between p-[clamp(1.5rem,2vw,2.25rem)]">
 
-        {/* Top */}
-        <div className="flex flex-col gap-4">
-          
+
+        <div className="flex flex-col gap-2">
+
           {/* Micro label */}
           <span className="text-[0.7rem] uppercase tracking-[0.2em] text-white/40">
             About
@@ -45,11 +34,11 @@ function AboutCard({ title, description }: AboutCardProps) {
           {/* Title */}
           <h3
             className="
-              font-archivo
               text-[clamp(1.6rem,2.5vw,2.2rem)]
               leading-tight
               tracking-tight
               text-white
+              font-semibold
             "
           >
             {title}
@@ -60,16 +49,17 @@ function AboutCard({ title, description }: AboutCardProps) {
         {/* Bottom */}
         <div className="flex flex-col gap-6">
 
-          {/* Divider */}
-          <div className="w-full h-px bg-gradient-to-r from-white/10 via-white/30 to-transparent" />
+
 
           {/* Description */}
           <p
             className="
               text-[clamp(0.95rem,1.4vw,1.05rem)]
               leading-relaxed
-              text-white/65
+              text-white/90
               max-w-[90%]
+              pt-2
+              
             "
           >
             {description}
@@ -80,7 +70,7 @@ function AboutCard({ title, description }: AboutCardProps) {
       </div>
 
       {/* Corner detail (subtle personality) */}
-      <div className="absolute bottom-4 right-4 text-white/10 text-xs tracking-widest">
+      <div className="absolute bottom-4 right-4 text-[#FFC50F] text-xs tracking-widest">
         ✦
       </div>
     </div>
