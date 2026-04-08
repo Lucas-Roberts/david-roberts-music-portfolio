@@ -6,6 +6,7 @@ import Hero from "./Sections/Hero"
 import Music from "./Sections/Music"
 import Contact from "./Sections/Contact"
 import About from "./Sections/About"
+import Footer from "./components/Footer"
 import { useParallaxBackground } from "./components/useParrallaxBackground"
 
 import bgImage from "./assets/recordBackground.jpg"
@@ -30,6 +31,7 @@ useParallaxBackground(bgRef)
         <About />
         <Music />
         <Contact />
+        <Footer />
       </div>
     </>
   )
